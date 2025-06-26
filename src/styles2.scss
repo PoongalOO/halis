@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+:root {
+  --accent-color: #00bcd4;
+}
+
+.page-title {
+  text-align: left;
+  margin-bottom: 20px;
+  color: #333;
+  margin-left: 60px;
+  margin-top: 2px;
+}
+
+  /* Thème clair par défaut */
+  body.light-theme {
+    background-color: #f9f9f9;
+    color: #333;
+  
+    svg {
+      background: white;
+      color: #000;
+      fill: #000;
+    }
+  
+    button.export,
+    input[type="file"] {
+      background: #ffffff;
+      color: #000;
+      border: 1px solid #ccc;
+    }
+  
+    button.export:hover {
+      background: #f0f0f0;
+    }
+  }
+  
+  /* Thème sombre */
+  body.dark-theme {
+    background-color: #121212;
+    color: #ffffff;
+  
+    svg {
+      background: #1a1a1a;
+      color: #fff;
+      fill: #fff;
+    }
+  
+    button.export,
+    input[type="file"] {
+      background: #1e1e1e;
+      color: #ffffff;
+      border: 1px solid #444;
+    }
+  
+    button.export:hover {
+      background: #2c2c2c;
+    }
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    margin-left: 3rem;
+    text-align: left;
+    color: var(--accent-color);
+  }
+  
+  input[type="file"] {
+    display: block;
+    //margin: 0 auto 1rem auto;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  svg {
+    display: block;
+    border-radius: 10px;
+    margin: 1rem auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  svg.sv-item__svg{
+    display: none !important;
+  }
+  button.export {
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .button-bar-container {
+    display: flex;
+    justify-content: center;
+    margin: 1rem auto;
+    position: relative;
+  }
+  
+  .burger-toggle-doc {
+    position: fixed;
+    top: 0rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .burger-toggle {
+    position: fixed;
+    top: 0rem;
+    left: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  
+  .button-bar {
+    position: fixed;
+    top: 3rem;
+    left: 1.5rem;
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid #555;
+    border-radius: 8px;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 999;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .button-bar.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  
+  .button-bar.show {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  
+  .button-bar-doc-container {
+    display: flex;
+    justify-content: center;
+    margin: 1rem auto;
+    position: relative;
+  }
+
+  .button-bar-doc {
+    position: fixed;
+    top: 3rem;
+    right: 1.5rem;
+    background: rgba(171, 104, 104, 0.85);
+    border: 1px solid #555;
+    border-radius: 8px;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 999;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .button-bar-doc.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  
+  .button-bar-doc.show {
+    opacity: 1;
+    transform: scaleY(1);
+  }

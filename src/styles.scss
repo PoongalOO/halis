@@ -1,0 +1,240 @@
+:root {
+  --accent-color: #00bcd4;
+}
+
+.bloc-intro {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 0 2.5rem;
+}
+
+.bloc-text {
+  color: #333;
+  text-align:justify;
+}
+.page-title {
+  text-align: left;
+  margin-bottom: 20px;
+  color: #333;
+  margin-left: 60px;
+  margin-top: 2px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+
+/* Styles génériques pour les boutons de la toolbar */
+.toolbar button {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Classes spécifiques avec leurs icônes */
+.btn-export-png {
+  background-image: url('assets/interface/gallery-svgrepo-com.svg');
+}
+
+.btn-export-pdf {
+  color: var(--p-button-primary-hover-background);
+  background-image: url('assets/interface/book-1-svgrepo-com.svg');
+}
+.btn-fullscreen {
+  background-image: url('assets/interface/maximize-svgrepo-com.svg');
+}
+
+.btn-zoomin {
+  background-image: url('assets/interface/add-square-svgrepo-com.svg');
+}
+
+.btn-zoomout {
+  background-image: url('assets/interface/minus-square-svgrepo-com.svg');
+}
+
+.btn-export-menu {
+  background-image: url('assets/interface/menu-svgrepo-com.svg');
+}
+
+.btn-left {
+  background-image: url('assets/interface/arrow-square-left-svgrepo-com.svg');
+}
+
+.btn-right {
+  background-image: url('assets/interface/arrow-square-right-svgrepo-com.svg');
+}
+
+.btn-plus {
+  background-image: url('assets/interface/add-square-svgrepo-com.svg');
+}
+
+.btn-moins {
+  background-image: url('assets/interface/minus-square-svgrepo-com.svg');
+}
+
+.btn-theme-sombre {
+  background-image: url('assets/interface/brush-svgrepo-com.svg');
+}
+
+.btn-theme-clair {
+  background-image: url('assets/interface/designtools-svgrepo-com.svg');
+}
+
+.btn-deplier {
+  background-image: url('assets/interface/data-svgrepo-com.svg');
+}
+
+.btn-plier {
+  background-image: url('assets/interface/maximize-4-svgrepo-com.svg');
+}
+
+.p-card {
+  margin: 0.5rem;
+}
+.p-card-body {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+}
+
+/* Thème clair par défaut */
+body.light-theme {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+body.light-theme svg {
+  background: white;
+  color: #000;
+  fill: #000;
+}
+
+body.light-theme button.export,
+body.light-theme input[type="file"] {
+  background: #ffffff;
+  color: #000;
+  border: 1px solid #ccc;
+}
+
+body.light-theme button.export:hover {
+  background: #f0f0f0;
+}
+
+/* Thème sombre */
+body.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-theme svg {
+  background: #1a1a1a;
+  color: #fff;
+  fill: #fff;
+}
+
+body.dark-theme button.export,
+body.dark-theme input[type="file"] {
+  background: #1e1e1e;
+  color: #ffffff;
+  border: 1px solid #444;
+}
+
+body.dark-theme button.export:hover {
+  background: #2c2c2c;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  margin-left: 3rem;
+  text-align: left;
+  color: var(--accent-color);
+}
+
+input[type="file"] {
+  display: block;
+  /* margin: 0 auto 1rem auto; */
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+svg {
+  display: block;
+  border-radius: 10px;
+  margin: 1rem auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+svg.sv-item__svg {
+  display: none !important;
+}
+
+button.export {
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.button-bar-container {
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto;
+  position: relative;
+}
+
+.burger-toggle {
+  position: fixed;
+  //top: 0rem;
+  left: 1rem;
+  background: none;
+  border: none;
+  color: var(--p-button-primary-hover-background);
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.button-bar {
+  position: fixed;
+  top: 3rem;
+  left: 1.5rem;
+  background: var(--p-button-primary-hover-background);
+  border: 1px solid #555;
+  border-radius: 8px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 999;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.button-bar.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.button-bar.show {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
