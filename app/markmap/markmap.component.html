@@ -1,0 +1,17 @@
+<h2 class="page-title">Carte mentale</h2>
+<!-- <input type="file" accept=".md,.markdown" (change)="onFileSelected($event)" /> -->
+<input pInputText type="file" accept=".md" (change)="onFileSelected($event)" pSize="large" placeholder="Large" />
+
+<div class="toolbar">
+    <button class="btn-export-png" (click)="exportToPNG()"></button>
+    <button class="btn-export-pdf" (click)="exportToPDF()"></button>
+    <button class="btn-theme-clair" (click)="setTheme('light')"></button>
+    <button class="btn-theme-sombre" (click)="setTheme('dark')"></button>
+    <button class="btn-fullscreen" (click)="toggleFullscreen()">⛶</button>
+    <button class="btn-deplier" (click)="toggleCollapse()">
+      {{ collapseState ? '+' : '-' }}
+    </button>
+</div>
+
+  
+<svg #svgContainer width="100%" height="600"></svg>

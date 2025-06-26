@@ -1,0 +1,31 @@
+<div class="checklist-container">
+    <h2 class="page-title">Checklist</h2>
+    <input pInputText type="file" id="file" (change)="onFileSelected($event)" accept=".md">
+    <br>
+
+    <div class="title-button-container">
+      <h3>{{ mainTitle }} (Total: {{ totalItems }}, Restant: {{ remainingItems }})</h3>
+      <button *ngIf="items.length > 0" type="button" pButton label="Réinitialiser" (click)="resetChecklist()"></button>
+    </div>
+
+    <!-- Liste des items de la checklist -->
+    <div class="items">
+      <div *ngFor="let item of items" [ngClass]="{'checked': item.checked}" class="checklist-item">
+        <input type="checkbox" [checked]="item.checked" (change)="toggleItem(item)" />
+        <span class="item-title">{{ item.title }}</span>
+        <!-- Affichage des détails associés à l'item (lignes commençant par "-") -->
+        <ul *ngIf="item.details && item.details.length">
+          <li *ngFor="let detail of item.details">{{ detail }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Fenêtre PrimeNG affichée lorsque tous les items sont cochés -->
+  <p-dialog header="Félicitations" [(visible)]="showCompletionDialog" modal="true" [closable]="true">
+    <p>Toutes les tâches sont terminées !</p>
+    <p-footer>
+      <p-button label="OK" class="w-full" styleClass="w-full" (click)="showCompletionDialog=false" />
+    </p-footer>
+  </p-dialog>
+  

@@ -1,0 +1,15 @@
+.toolbar {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+  }
+  
+  button {
+    padding: 0.2rem 0.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }

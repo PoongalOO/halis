@@ -1,0 +1,18 @@
+<h2 class="page-title">Editeur Markdown</h2>
+<div style="margin-bottom: 15px;">
+  <!-- <input type="file" accept=".md" (change)="onFileSelected($event)" #fileInput /> -->
+  <input pInputText type="file" accept=".md" (change)="onFileSelected($event)" pSize="large" placeholder="Large" #fileInput />
+
+  <button (click)="saveFile()">Enregistrer sous...</button>
+</div>
+  
+  <div class="container-md">
+    <!-- Zone d'édition (EasyMDE) -->
+    <div class="editor-container">
+      <textarea id="editor" #editor></textarea>
+    </div>
+  
+    <!-- Zone de prévisualisation -->
+    <div class="preview-md" [innerHTML]="previewContent"></div>
+  </div>
+  

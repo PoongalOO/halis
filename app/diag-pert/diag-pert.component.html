@@ -1,0 +1,30 @@
+<h2 class="page-title">Diagramme PERT</h2>
+
+<div class="toolbar">
+    <button class="btn-export-pdf" (click)="exportAsPDF()"></button>
+    <button class="btn-export-png" (click)="exportAsPNG()"></button>
+    <button class="btn-plus" (click)="zoomIn()"></button>
+    <button class="btn-moins" (click)="zoomOut()"></button>
+  </div>
+
+<div>
+    <label for="fileInput">Charger le fichier Markdown :</label>
+    <input type="file" id="fileInput" (change)="onFileSelected($event)" accept=".md" />
+</div>
+
+<div id="diagramWrapper" style="border: 1px solid #ccc; margin-top: 20px; overflow: none;">
+    <div id="pertDiagram"></div>
+</div>
+
+<div id="legend" style="margin-top:20px; font-size: 0.9em;">
+    <strong>Légende :</strong>
+    <ul>
+      <li><strong>D</strong> : Durée de l’activité en jours (calculée selon la formule PERT)</li>
+      <li><strong>ES</strong> : Earliest Start (début au plus tôt)</li>
+      <li><strong>EF</strong> : Earliest Finish (fin au plus tôt)</li>
+      <li><strong>LS</strong> : Latest Start (début au plus tard)</li>
+      <li><strong>LF</strong> : Latest Finish (fin au plus tard)</li>
+      <li><strong>Slack</strong> : Marge (différence entre LS et ES ou entre LF et EF)</li>
+      <li><strong>Dummy</strong> : Relation de dépendance qui n'est pas associée à une véritable activité. Elle n'a généralement pas de durée et sert uniquement à modéliser correctement les contraintes de séquence entre les tâches</li>
+    </ul>
+  </div>

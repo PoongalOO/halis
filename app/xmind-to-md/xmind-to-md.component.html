@@ -1,0 +1,21 @@
+<h2 class="page-title">Convertisseur XMind vers Markdown</h2>
+<input type="file" (change)="onFileSelected($event)" accept=".json" />
+
+<div>
+    <h3>Procédure à suivre</h3>
+    <p>Comprendre le format XMind :
+        Un fichier XMind est essentiellement une archive (format ZIP) qui contient des fichiers XML ou JSON décrivant la structure de la carte mentale. Vous pouvez renommer l'extension en .zip et l'extraire pour accéder à son contenu.
+    </p>
+    <ul>
+        <li><b>Extraire le contenu :</b> Une fois extrait, repérez le fichier content.json qui contient la structure principale de la carte mentale.</li>
+        <li><b>Lecture du fichier :</b> Sélectionnez le fichier content.json via le formulaire. Le FileReader lit le contenu du fichier, et le JSON est ensuite parsé.</li>
+        <li><b>Extraction du rootTopic :</b> Le fichier content.json est lu puis affiché à l'écran au format md.</li>
+        <li><b>Téléchargement du Markdown :</b> Une fois convertit, vous pouvez télécharger le fichier au format md, format compréhensible et utilisable par HALIS pour d'autre forme d'affichage.</li>
+    </ul>
+</div>
+
+<div *ngIf="markdown">
+    <h2>Résultat Markdown</h2>
+    <p-button (click)="downloadMarkdown()" [disabled]="!markdown">Enregistrer le fichier au format Markdown</p-button>
+    <pre>{{ markdown }}</pre>
+</div>

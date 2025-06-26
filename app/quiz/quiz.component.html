@@ -1,0 +1,58 @@
+<h2 class="page-title">Quiz</h2>
+<!-- <input type="file" accept=".md" (change)="onFileSelected($event)" /> -->
+<input pInputText type="file" accept=".md" (change)="onFileSelected($event)" pSize="large" placeholder="Large" />
+
+<div class="quiz-container">
+    <!-- Affichage du quiz une question à la fois (tant que le quiz n'est pas soumis) -->
+    <div *ngIf="quizQuestions.length > 0 && !submitted" class="quiz-content">
+      <!-- Barre de progression -->
+      <div class="progress-container">
+        <div 
+          class="progress-bar" 
+          [style.width.%]="(currentQuestionIndex + 1) / quizQuestions.length * 100">
+        </div>
+      </div>
+      <div class="progress-text">
+        Question {{ currentQuestionIndex + 1 }} sur {{ quizQuestions.length }}
+      </div>
+
+      <form (ngSubmit)="nextQuestion()" #quizForm="ngForm" class="question-form">
+        <div *ngIf="currentQuestion">
+          <p class="question-text">{{ currentQuestion.question }}</p>
+          <div class="answers">
+            <div *ngFor="let answer of currentQuestion.answers" class="answer-option">
+              <label>
+                <input
+                  type="radio"
+                  name="question{{ currentQuestionIndex }}"
+                  [value]="answer.text"
+                  [(ngModel)]="userAnswers[currentQuestionIndex]"
+                  required
+                />
+                {{ answer.text }}
+              </label>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn">
+          {{ currentQuestionIndex === quizQuestions.length - 1 ? 'Terminer le quiz' : 'Suivant' }}
+        </button>
+      </form>
+    </div>
+
+    <!-- Affichage des résultats après soumission -->
+    <div *ngIf="submitted" class="results">
+      <h3>Résultats du quiz</h3>
+      <p class="score">Vous avez eu {{ score }} sur {{ quizQuestions.length }} bonnes réponses soit {{ (score / quizQuestions.length) * 100 }}% de réussite.</p>
+      <ul class="results-list">
+        <li *ngFor="let q of quizQuestions; index as i">
+          <strong>Question {{ i + 1 }} :</strong> {{ q.question }}<br>
+          Votre réponse :
+          <span [style.color]="isCorrect(i) ? 'green' : 'red'">
+            {{ userAnswers[i] || 'Aucune réponse' }}
+          </span><br>
+          Bonne réponse : <span>{{ getCorrectAnswer(q) }}</span>
+        </li>
+      </ul>
+    </div>
+</div>

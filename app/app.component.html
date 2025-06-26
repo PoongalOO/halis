@@ -1,0 +1,45 @@
+<!-- Menu outils -->
+<button class="burger-toggle " (click)="toggleButtonBar()"><img style="width: 30px; height: 30px;" src="assets/interface/menu-svgrepo-com.svg"></button>
+<div class="button-bar" [class.show]="buttonBarVisible" [class.hidden]="!buttonBarVisible">
+  <button (click)="setActiveComponent('home')">Accueil</button>
+  <button (click)="setActiveComponent('diaporama')">Diaporama</button>
+  <button (click)="setActiveComponent('markmap')">Carte mentale</button>
+  <button (click)="setActiveComponent('quiz')">Quiz</button>
+  <button (click)="setActiveComponent('editeurmd')">Editeur</button>
+  <button (click)="setActiveComponent('link-list')">Liens</button>
+  <button (click)="setActiveComponent('chart-generator')">Graphiques Chart</button>
+  <button (click)="setActiveComponent('mermaid-diagram')">Diagrammes</button>
+  <button (click)="setActiveComponent('gojs-diagram')">Diagrammes GOJS</button>
+  <button (click)="setActiveComponent('diag-pert')">Diagramme P.E.R.T.</button>
+  <button (click)="setActiveComponent('pomodoro')">Pomodoro</button>
+  <button (click)="setActiveComponent('checklist')">Checklist</button>
+  <button (click)="setActiveComponent('xmindtomd')">xmind->md</button>
+  <button (click)="setActiveComponent('documentation')">Documentation</button>
+</div>
+
+<!-- Menu documentation 
+<button class="burger-toggle-doc" (click)="toggleButtonBar()">☰</button>
+<div class="button-bar-doc" [class.show]="buttonBarVisible" [class.hidden]="!buttonBarVisible">
+  <button (click)="toggleDocumentation()">Documentation Diagrammes</button>
+</div>
+-->
+
+<div>
+  <app-home *ngIf="activeComponent === 'home'"></app-home>
+  <app-diaporama *ngIf="activeComponent === 'diaporama'"></app-diaporama>
+  <app-markmap *ngIf="activeComponent === 'markmap'"></app-markmap>
+  <app-quiz *ngIf="activeComponent === 'quiz'"></app-quiz>
+  <app-editeurmd *ngIf="activeComponent === 'editeurmd'"></app-editeurmd>
+  <app-link-list *ngIf="activeComponent === 'link-list'"></app-link-list>
+  <app-mermaid-diagram *ngIf="activeComponent === 'mermaid-diagram'"></app-mermaid-diagram>
+  <app-pomodoro *ngIf="activeComponent === 'pomodoro'"></app-pomodoro>
+  <app-checklist *ngIf="activeComponent === 'checklist'"></app-checklist>
+  <app-documentation *ngIf="activeComponent === 'documentation'"></app-documentation>
+  <app-diag-pert *ngIf="activeComponent === 'diag-pert'"></app-diag-pert>
+  <app-xmind-to-md *ngIf="activeComponent === 'xmindtomd'"></app-xmind-to-md>
+  <app-chart-generator *ngIf="activeComponent === 'chart-generator'"></app-chart-generator>
+  <app-gojs-diagram *ngIf="activeComponent === 'gojs-diagram'"></app-gojs-diagram>
+</div>
+
+<app-footer></app-footer>
+<router-outlet />

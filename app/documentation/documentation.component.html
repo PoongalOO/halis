@@ -1,0 +1,117 @@
+<h2 class="page-title">Documentation</h2>
+
+<div class="card">
+  <p-tabs value="0">
+      <p-tablist>
+          <p-tab value="0">Diagrammes (Mermaid)</p-tab>
+          <p-tab value="1">Diapo (Marp)</p-tab>
+          <p-tab value="2">Carte mentale (Markmap)</p-tab>
+          <p-tab value="3">Editeur MD (EasyMD)</p-tab>
+          <p-tab value="4">Liens</p-tab>
+          <p-tab value="5">Quiz</p-tab>
+          <p-tab value="6">Pomodoro</p-tab>
+          <p-tab value="7">Checklist</p-tab>
+      </p-tablist>
+      <p-tabpanels>
+          <p-tabpanel value="0">
+              <p class="m-0">
+                  <p>Mermaid permet de générer divers diagrammes à partir d'une syntaxe textuelle simple. Voici quelques exemples :</p>
+                
+                  <h4>1. Flowchart (Diagramme en flux)</h4>
+                  <pre>
+                  graph TD;
+                    A[Début] --> B{{ '{' }}Condition ?{{ '}' }};
+                    B -- Oui --> C[Action 1];
+                    B -- Non --> D[Action 2];
+                    C --> E[Fin];
+                    D --> E[Fin];
+                  </pre>
+                  <p>Ce diagramme représente un processus décisionnel avec une condition.</p>
+                
+                  <h4>2. Sequence Diagram (Diagramme de séquence)</h4>
+                  <pre>
+                  sequenceDiagram
+                    participant Alice
+                    participant Bob
+                    Alice->>Bob: Salut Bob, comment vas-tu ?
+                    Bob-->>Alice: Très bien, merci !
+                  </pre>
+                  <p>Ce diagramme montre l'échange de messages entre deux participants.</p>
+                
+                  <h4>3. Gantt Diagram (Diagramme de Gantt)</h4>
+                  <pre>
+                  gantt
+                    title Projet Exemple
+                    dateFormat  YYYY-MM-DD
+                    section Développement
+                    Planification      :a1, 2024-04-01, 10d
+                    Développement      :after a1, 20d
+                    Tests              :2024-05-01, 5d
+                  </pre>
+                  <p>Ce diagramme présente une planification de projet avec des durées et des dépendances.</p>
+                
+                  <h4>4. Class Diagram (Diagramme de classes)</h4>
+                  <pre>
+                  classDiagram
+                    Animal &lt;|-- Chat
+                    Animal &lt;|-- Chien
+                    Animal : +String nom
+                    Animal : +int age
+                    Animal : +void manger()
+                    Animal : +void dormir()
+                  </pre>
+                  <p>Ce diagramme illustre une hiérarchie de classes.</p>
+                
+                  <p>Pour utiliser Mermaid, il suffit de copier le code correspondant dans un fichier ou un composant qui se charge de le rendre (comme dans l'exemple d'intégration précédemment présenté).</p>
+              
+          </p-tabpanel>
+          <p-tabpanel value="1">
+              <p class="m-0">
+                <p class="m-0"> <p>Marp permet de créer des présentations à partir de fichiers Markdown en convertissant le contenu en diapositives. Voici quelques exemples :</p> <h4>1. Présentation simple</h4> <pre> --- marp: true title: "Présentation Exemple" ---
+                  Slide 1
+                  
+                  Contenu de la première diapositive
+                  Slide 2
+                  
+                  Contenu de la deuxième diapositive </pre>
+                  <p>Cette présentation basique montre comment structurer un document Markdown pour générer une série de diapositives.</p> <h4>2. Présentation avec thèmes</h4> <pre> --- marp: true theme: gaia title: "Présentation Thématique" ---
+                  Titre de la présentation
+                  Sous-titre
+                  Diapositive Thématique
+                  
+                  Utilisez des thèmes pour personnaliser l'apparence de vos diapositives. </pre>
+                  <p>Cet exemple illustre l'utilisation de thèmes pour modifier le design de la présentation.</p> <p>Markmap permet de générer des cartes heuristiques à partir d'un document Markdown. Voici quelques exemples :</p> <h4>1. Carte heuristique de base</h4> <pre> # Carte Mentale Exemple ## Sujet Principal - Idée 1 - Sous-idée 1.1 - Sous-idée 1.2 - Idée 2 </pre> <p>Ce schéma montre comment organiser visuellement des idées en hiérarchie grâce à Markdown.</p> <h4>2. Carte détaillée d'un projet</h4> <pre> # Projet ## Phase 1: Planification - Objectif 1 - Objectif 2 ## Phase 2: Exécution - Tâche 1 - Détail A - Détail B - Tâche 2 </pre> <p>Ce diagramme illustre la structuration d'un projet en différentes phases et tâches.</p> <p>easyMD est un outil convivial pour éditer et visualiser du Markdown. Voici quelques exemples :</p> <h4>1. Document Markdown simple</h4> <pre> # Titre du Document Ceci est un exemple de document Markdown édité avec easyMD.
+                  Section
+                  
+                      Élément 1
+                  
+                      Élément 2 </pre>
+                      <p>Ce document présente les bases de la rédaction en Markdown avec des titres et des listes.</p> <h4>2. Document avec code et tableau</h4> <pre>
+                  
+                  Exemple de Code
+                  
+                  Voici un extrait de code en Python :
+                  
+                  def bonjour():
+                      print("Bonjour, monde !")
+                  
+                  Tableau
+                  Nom	Âge
+                  Alice	30
+                  Bob	25
+                  </pre> <p>Ce document montre comment intégrer du code source et des tableaux dans un fichier Markdown.</p> <p>Pour utiliser Marp, Markmap et easyMD, il suffit de copier le code correspondant dans un fichier ou un composant dédié à leur rendu.</p>
+              
+          </p-tabpanel>
+          <p-tabpanel value="2">
+              <p class="m-0">
+                  At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti
+                  atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique
+                  sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
+                  facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                  impedit quo minus.
+              </p>
+          </p-tabpanel>
+      </p-tabpanels>
+  </p-tabs>
+</div>
+  

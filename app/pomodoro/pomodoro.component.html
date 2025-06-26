@@ -1,0 +1,69 @@
+<h2 class="page-title">Pomodori</h2>
+<!-- Input pour charger le fichier Markdown -->
+<label for="file">Charger vos pomodori (au format Markdown) :</label>
+<input pInputText type="file" id="file" (change)="onFileSelected($event)" accept=".md">
+
+<div class="container">  
+    <!-- Affichage de la timeline -->
+    <div *ngIf="timeline.length > 0" class="timeline">
+        <h3>{{ timeline.length }} pomodori - <small>(Temps total : {{ formatDuration(totalPomodoroTime) }})</small></h3>
+
+        <h2 *ngIf="globalTitle">{{ globalTitle }}</h2>
+
+          <!-- Bouton Démarrer si la séquence n'est pas lancée -->
+        <div *ngIf="timeline.length > 0 && !isRunning" class="start-btn">
+            <button pButton type="button" label="Démarrer" (click)="startSequence(0)"></button>
+        </div>
+    
+        <!-- Bouton Pause/Resume -->
+        <div *ngIf="isRunning" class="pause-btn">
+            <button pButton type="button" [label]="isPaused ? 'Reprendre' : 'Mettre en pause'" (click)="togglePause()"></button>
+        </div>
+
+        <ul>
+            <li *ngFor="let item of timeline; let i = index" [class.active]="i === currentIndex">
+            <!-- Pour un pomodoro, affichage du titre et du contenu -->
+            <div *ngIf="item.type === 'pomodoro'">
+                <h3>{{ item.title }}</h3>
+                <markdown [data]="item.content"></markdown>
+            </div>
+            <!-- Pour les pauses, on affiche le type -->
+            <div *ngIf="item.type === 'shortBreak'">
+                <i>Pause courte</i>
+            </div>
+            <div *ngIf="item.type === 'longBreak'">
+                <i>Pause longue</i>
+            </div>
+            <!-- Affichage du compteur : dans l'item actif, affichage du countdown -->
+            <strong>
+                <ng-container *ngIf="i === currentIndex; else staticTime">
+                <countdown #activeCountdown [config]="{ leftTime: item.remainingTime, format: 'mm:ss' }" (event)="handleEvent($event)"></countdown>
+                </ng-container>
+                <ng-template #staticTime>
+                <span *ngIf="item.type==='pomodoro'">{{ formatTime(item.duration) }}</span>
+                <span *ngIf="item.type==='shortBreak'">{{ formatTime(300) }}</span>
+                <span *ngIf="item.type==='longBreak'">{{ formatTime(900) }}</span>
+                </ng-template>
+            </strong>
+            <!-- Bouton pour démarrer la séquence à partir de cet item -->
+            <button pButton type="button" label="Démarrer ici" (click)="startSequence(i)"></button>
+            </li>
+        </ul>
+    </div>
+  
+    <!-- Modale de confirmation PrimeNG -->
+    <p-dialog header="Confirmation" [(visible)]="confirmDisplay" [modal]="true" [closable]="false" [style]="{'width': '350px'}">
+        <p>{{ confirmMessage }}</p>
+        <div class="flex justify-end gap-2">
+            <button pButton type="button" label="Non" (click)="onReject()" class="p-button-secondary"></button>
+            <button pButton type="button" label="Oui" (click)="onConfirm()" class="p-button-success"></button>
+        </div>
+    </p-dialog>
+</div>
+  
+  
+    <!-- Modale de confirmation PrimeNG -->
+
+
+      
+  

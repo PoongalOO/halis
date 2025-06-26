@@ -1,0 +1,35 @@
+<h2 class="page-title">Graphiques Chart</h2>
+
+<input pInputText id="file-upload" type="file" accept=".md" (change)="onFileSelected($event)" pSize="large" placeholder="Large" />
+
+<div class="toolbar">
+    <button class="btn-plus" (click)="zoomIn()"></button>
+    <button class="btn-moins" (click)="zoomOut()"></button>
+    <button class="btn-zoomout" (click)="enlargeChart()"></button>
+    <button class="btn-zoomin" (click)="shrinkChart()"></button>
+    <button class="btn-export-pdf" (click)="printPDF()"></button>
+    <button class="btn-export-png" (click)="printPNG()"></button>
+    <button class="btn-fullscreen" (click)="toggleFullScreen()"></button>
+</div>
+
+<canvas #chartCanvas></canvas>
+<!--  
+<div class="file-input">
+    <label for="file-upload">Charger un fichier Markdown :</label>
+    <input id="file-upload" type="file" (change)="onFileSelected($event)" accept=".md">
+  </div>
+  <div class="chart-container">
+
+    <div class="chart-controls">
+        <button (click)="zoomIn()">Zoom +</button>
+        <button (click)="zoomOut()">Zoom -</button>
+        <button (click)="enlargeChart()">Agrandir</button>
+        <button (click)="shrinkChart()">Diminuer</button>
+        <button (click)="printPDF()">PDF</button>
+        <button (click)="printPNG()">PNG</button>
+        <button (click)="toggleFullScreen()">Plein écran</button>
+    </div>
+    
+    <canvas #chartCanvas></canvas>
+  </div>
+-->

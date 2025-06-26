@@ -1,0 +1,46 @@
+<h2 class="page-title">
+    <img src="assets/logo.png" alt="HALIS" class="img-fluid logo" />
+</h2>
+
+<div class="bloc-intro">
+    <i>Organisez, présentez, réussissez !</i><br>
+    <i>Ecrivez toutes vos données au format markdown, HALIS les structurera et les visualisera pour vous.</i><br>
+    <i>Toutes vos données restent dans vos fichiers Markdown sur votre ordinateur, aucun fichier n'est conservé sur le serveur d'HALIS.</i>
+
+    <p class="bloc-text">Découvrez HALIS, l'application qui vous aide à organiser votre quotidien professionnel. Conçue pour les personnes actives et soucieuses d’optimiser leur organisation, HALIS vous accompagne à chaque étape de votre journée. Elle harmonise vos tâches et structure vos contenus, transformant vos données en informations claires et impactantes. Grâce à son interface minimaliste, créez en quelques clics des tableaux, graphiques, diapos, schémas et bien d’autres formats pour des présentations, formations, réunions ou compte-rendus réussis.</p>
+    
+    <ul>
+        <li>H : <b>Harmonisation</b> – pour organiser et gérer les tâches quotidiennes</li>
+        <li>A : <b>Assistant</b> – qui accompagne l’utilisateur dans la gestion de son travail</li>
+        <li>L : <b>Logistique</b> – pour planifier, structurer et agencer les contenus</li>
+        <li>I : <b>Informations</b> – pour collecter et mettre en forme les datas</li>
+        <li>S : <b>Synthèse</b> – afin de présenter des analyses, rapports, et visualisations sous divers formats</li>           
+    </ul>
+</div>
+
+
+<div class="card">
+    <p-carousel [value]="outils" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions">
+        <ng-template let-product #item>
+            <p-card header="{{product.name}}">
+                <div class="border border-surface rounded-border m-2 p-4">
+                    <div class="mb-4">
+                        <div class="relative mx-auto">
+                            <img alt="Card" class="w-full img-card" src="{{product.img}}" />
+                        <p>{{product.desc}}</p>
+                        <i>Développé à partir de {{product.library}}</i><br>
+                        
+                        <a href="{{product.urllib}}" target="_blank" class="absolute top-0 right-0 p-2"><i>{{product.urllib}}</i></a>
+                        <p></p>
+                        <!-- <div class="flex gap-4 mt-1">
+                            <p-button label="Go !" class="w-full" styleClass="w-full" (click)="setActiveComponent('diaporama')" />
+                        </div> -->
+                        </div>
+                    </div>
+                </div>
+
+            </p-card>
+        </ng-template>
+    </p-carousel>
+</div>
+

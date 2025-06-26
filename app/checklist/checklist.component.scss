@@ -1,0 +1,45 @@
+.checklist-container {
+    margin: 20px;
+  }
+  
+  .header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .checklist-item {
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+  }
+  
+  .checklist-item.checked {
+    background-color: lightblue;
+    font-style: italic;
+  }
+  
+  .item-title {
+    margin-left: 10px;
+    font-weight: bold;
+  }
+
+  .title-button-container {
+    display: flex;
+    align-items: center; /* Aligne verticalement les éléments */
+    justify-content: space-between; /* Ajoute de l'espace entre le titre et le bouton */
+    gap: 1rem; /* Ajoute un espacement entre le titre et le bouton */
+    margin-bottom: 1rem; /* Ajoute un espacement en bas du conteneur */
+  }
+  
+  .title-button-container h3 {
+    margin: 0; /* Supprime les marges par défaut du titre */
+  }
+  
+  .title-button-container button {
+    margin-left: auto; /* Pousse le bouton à droite si nécessaire */
+  }

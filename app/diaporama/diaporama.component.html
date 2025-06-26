@@ -1,0 +1,35 @@
+<h2 class="page-title">Diaporama</h2>
+
+<input pInputText type="file" accept=".md" (change)="onFileSelected($event)" pSize="large" placeholder="Large" />
+
+<div class="toolbar">
+    <button class="btn-left" (click)="prevSlide()"></button>
+    <button class="btn-right" (click)="nextSlide()"></button>
+    <button class="btn-moins" (click)="decreaseFontSize()"></button>
+    <button class="btn-plus" (click)="increaseFontSize()"></button>
+    <button class="btn-export-png" (click)="toggleTheme()"></button>
+    <button class="btn-fullscreen" (click)="toggleFullscreen()"></button>
+    <button class="btn-export-menu" (click)="toggleToc()"></button>
+    <button class="btn-export-pdf" (click)="exportToPDF()"></button>
+</div>
+
+
+
+<div class="pagination" *ngIf="htmlSlides.length">
+    Slide {{ currentIndex + 1 }} / {{ htmlSlides.length }}
+</div>
+
+<div class="toc" *ngIf="showToc && summary.length">
+    <h4>Sommaire</h4>
+    <ul>
+      <li *ngFor="let item of summary" [class.active]="item.index === currentIndex">
+        <a (click)="currentIndex = item.index">{{ item.title }}</a>
+      </li>
+    </ul>
+  </div>
+
+
+<div class="marp-viewer" [ngClass]="theme" [ngStyle]="{ 'font-size.%': fontSize }">
+    <div class="slide" [innerHTML]="htmlSlides[currentIndex]" *ngIf="htmlSlides.length"></div>
+</div>
+  

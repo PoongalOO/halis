@@ -1,0 +1,39 @@
+.container-md {
+    display: flex;
+    gap: 10px;
+  }
+  
+  #editor {
+    width: 50%;
+    height: 80vh;
+  }
+  
+  .editor-container, .preview-md {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 400px;
+    box-sizing: border-box;
+  }
+  
+  /* Pour CodeMirror : forcer le retour à la ligne sur les longues lignes */
+  .CodeMirror {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: #000;
+    background-color: #fff;
+    caret-color: #000;
+  }
+  
+  .CodeMirror-cursor {
+    /* Style de la "barre" du curseur */
+    border-left: 2px solid #000 !important; 
+  }
+
+  /* Optionnel : style pour la prévisualisation */
+  .preview-md {
+    height: 80vh;
+    border: 1px solid #ccc;
+    padding: 10px;
+    overflow: auto;
+    background-color: #fafafa;
+  }

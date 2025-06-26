@@ -1,0 +1,20 @@
+<h2 class="page-title">Diagramme GOJS</h2>
+<!-- <input type="file" (change)="onFileSelected($event)" accept=".md" /> -->
+<label for="fileInput">Charger le fichier Markdown :</label>
+<input pInputText type="file" accept=".md" (change)="onFileSelected($event)" pSize="large" placeholder="Large" />
+
+<!-- Boutons pour les actions -->
+<div class="toolbar">
+    <button class="btn-export-png" (click)="exportPNG()"></button>
+    <button class="btn-export-pdf" (click)="exportPDF()"></button>
+    <button class="btn-fullscreen" (click)="fullScreen()"></button>
+    <button class="btn-zoomin" (click)="zoomIn()"></button>
+    <button class="btn-zoomout" (click)="zoomOut()"></button>
+</div>
+
+<!-- Pour chaque diagramme extrait, un conteneur est créé -->
+<div *ngFor="let diagram of diagrams">
+    <h3>Diagramme : {{ diagram.type }}</h3>
+    <div class="diagramGOJS" [id]="diagram.divId" style="height:400px; border:1px solid #ccc; margin-bottom:20px;"></div>
+ </div>
+  
