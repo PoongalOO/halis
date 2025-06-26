@@ -1,0 +1,20 @@
+# Forcer les types MIME pour JavaScript et CSS
+AddType application/javascript .js
+AddType text/css .css
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /halis/
+
+  # Exclure les fichiers statiques (JS, CSS, images, etc.)
+  RewriteCond %{REQUEST_URI} \.(js|css|png|jpg|jpeg|gif|svg|ico)$ [NC]
+  RewriteRule ^ - [L]
+
+  # Ne pas réécrire la requête pour index.html directement
+  RewriteRule ^index\.html$ - [L]
+
+  # Si le fichier ou dossier n'existe pas, rediriger vers index.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /halis/index.html [L]
+</IfModule>
